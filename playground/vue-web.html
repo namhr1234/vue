@@ -7,6 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="app">
+
+        <script>
+            var div = document.querySelector('#app');
+            div.innerHTML('HelloWorld');
+
+            var viewModel = {}
+
+            Object.defineProperties(viewModel, 'str',{
+            get:function(){
+                //속성에 접근했을 때
+            },
+            set: function(newValue){
+                //속성에 값이 할당되었을 때
+                div.innerHTML = newValue; //새로운 글자 들어올 때 마다 화면에 새로운 글자로 뿌려진다.
+            }
+        })
+            
+
+        </script>
+
+    </div>
 </body>
 </html>
