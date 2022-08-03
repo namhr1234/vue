@@ -9,9 +9,14 @@
 <body>
     <div id="app">
         <app-header></app-header>
-        <app-content></app-content>
         <app-footer></app-footer>
     </div>
+
+    <div id="app2">
+        <app-header></app-header>
+        <app-footer></app-footer>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         //전역컨포넌트
@@ -22,17 +27,28 @@
         Vue.component('app-content', {
             template : '<div>content</div>'
         });
-        //Vue.component('component name', component content)
+        //전역 컴포넌트 Vue.component('component name', component content)
         new Vue({
             el: '#app',
             components: {
-                //'component name' : 'component content'
+                //컴포넌츠!!!'component name' : 'component content'
                 // 지역컴포넌트 등록 방식
                 'app-footer': {
                     template: '<footer>footer</footer>'
                 }
             }
         });
+
+        // new Vue({
+        //     el: "#app2",
+        //     components: {
+        //         //컴포넌츠!!!'component name' : 'component content'
+        //         // 지역컴포넌트 등록 방식
+        //         'app-footer': {
+        //             template: '<footer>footer</footer>' //인스턴스를 생성할 때 마다 컨포넌트를 생성해줘야 하는게 지역컨포넌트
+        //         }
+        //     }
+        // })
     </script>
 </body>
 </html>
