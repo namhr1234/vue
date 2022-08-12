@@ -9,6 +9,7 @@
 <body>
     <div id="app">
         <app-header v-bind:propsdata = "message"></app-header>
+        <app-content v-bind:prosdata = "num"></app-content>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
 
@@ -17,15 +18,23 @@
                 props: ['propsdata']
             }
 
+            var appContent = {
+                template: '<h1>{{propsdata}}</h1>',
+                props : ['propsdata'] //이름이 동일해도 됨. 고유의 영역이라서 구분 됨. (와우!!)
+            }
+
             new Vue({
                 el: '#app',
                 components: {
-                    'app-header' : appHearder
+                    'app-header' : appHearder,
+                    'app-content' : appContent
                 },
                 data : {
-                    message: 'hi'
+                    message: 'hi',
+                    num : 10
                 }
             })
+
         </script>
 
     </div>

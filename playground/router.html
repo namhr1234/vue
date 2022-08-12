@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <rounter-link to="/login">Login</rounter-link>
+            <rounter-link to="/main">Main</rounter-link>
+        </div>
+        <rounter-view></rounter-view> <!--router에서 바뀐 것들이 나올거임-->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+
+    <script>
+        var LoginComponent = {
+            template : '<div>login</div>'
+        }
+        var MainComponent = {
+            template : '<div>main</div>'
+        }
+
+        var router1 = new VueRouter({
+            //page 의 라우팅정보 --> 어떤 url로 이동했을 떄 어떤 페이지가 뿌려질 지 !! 배열로 들어간다
+            routs:[
+                {
+                    //page's url name
+                    path: '/login',
+                    //해당url에서 표시될 컴포넌트
+                    component: LoginComponent
+                },
+                //main page
+                {
+                    path: '/main',
+                    component: MainComponent
+                }
+            ]
+        });
+
+        new Vue({
+            el: '#app',
+            router: router1
+        });
+    </script>
+
+</body>
+</html>
